@@ -7,8 +7,6 @@ before_install:
 install:
 - |
   sudo apt-get install fuse appstream appstream-util
-- nvm install v12.18.0
-- nvm use v12.18.0
 
 before_script:
 - wget https://github.com/probonopd/linuxdeployqt/releases/download/7/linuxdeployqt-7-x86_64.AppImage; mv linuxdeployqt* linuxdeployqt; chmod +x linuxdeployqt
