@@ -25,7 +25,7 @@ script:
 - APPDIR="${BUILD_SRC}/AppDir"
 - mv atom "${APPDIR}/usr/local/atom"
 - mkdir -p "${APPDIR}/usr/share/pixmaps"
-- cp "${APPDIR}/usr/local/atom/atom.png" "${APPDIR}/usr/share/pixmaps"
+- cp "${APPDIR}/usr/local/atom/atom.png" "${APPDIR}"
 - mkdir -p "${APPDIR}/usr/share/applications"
 - cp atom.desktop "${APPDIR}/usr/share/applications"
 - mkdir -p "${APPDIR}/usr/share/metainfo"
