@@ -28,6 +28,10 @@ script:
 - cp atom.desktop "${APPDIR}/usr/share/applications"
 - mkdir -p "${APPDIR}/usr/share/metainfo"
 - cp io.atom.appdata.xml "${APPDIR}/usr/share/metainfo"
+- mkdir -p "${APPDIR}/usr/bin"
+- cd "${APPDIR}/usr/bin"
+- ln -s ../local/atom/atom atom
+- cd "${BUILD_SRC}"
 - find "${APPDIR}"
 - |
   ./linuxdeployqt "${APPDIR}/usr/share/applications/atom.desktop" \
