@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Atom
 StartupWMClass=Atom
-Comment=Atom Editor
+Comment=A hackable text editor for the 21st Century
 GenericName=Text Editor
 Exec=atom
 Icon=atom
