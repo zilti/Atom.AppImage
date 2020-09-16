@@ -36,6 +36,7 @@ script:
 - ln -s ../local/atom/atom atom
 - cd "${BUILD_SRC}"
 - find "${APPDIR}"
+- export ARCH=x86_64
 - |
   ./linuxdeployqt "${APPDIR}/usr/share/applications/atom.desktop" \
   -updateinformation="gh-releases-zsync|zilti|Atom.AppImage|continuous|Atom-*.AppImage.zsync" \
