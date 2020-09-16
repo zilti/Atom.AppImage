@@ -6,6 +6,6 @@ GenericName=Text Editor
 Exec=atom
 Icon=atom
 Type=Application
-Categories=Utilities;TextEditor;
+Categories=Development;TextEditor;
 X-AppImage-Version=1.51.0
 
