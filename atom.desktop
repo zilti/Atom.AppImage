@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Atom
+StartupWMClass=Atom
+Comment=Atom Editor
+GenericName=Text Editor
+Exec=atom
+Icon=atom
+Type=Application
+Categories=Utilities;TextEditor;
+X-AppImage-Version=1.51.0
+

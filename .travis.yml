@@ -1,0 +1,40 @@
+language: node_js
+sudo: true
+
+before_install:
+- sudo apt-get update -qq
+
+install:
+- |
+  sudo apt-get install fuse appstream appstream-cli
+- nvm install v12.18.0
+- nvm use v12.18.0
+
+before_script:
+- wget https://github.com/probonopd/linuxdeployqt/releases/download/7/linuxdeployqt-7-x86_64.AppImage; mv linuxdeployqt* linuxdeployqt; chmod +x linuxdeployqt
+- wget https://github.com/atom/atom/releases/download/v1.51.0/atom-amd64.tar.gz
+# unpacking
+- tar xzf atom-amd64.tar.gz
+- mv atom-1.51.0-amd64 atom
+
+script:
+- BUILD_SRC=$(pwd)
+- mkdir -p AppDir/usr/local
+- APPDIR="${BUILD_SRC}/AppDir"
+- mv atom "${APPDIR}/usr/local/atom"
+- mkdir -p "${APPDIR}/usr/share/pixmaps"
+- cp "${APPDIR}/usr/local/atom/atom.png" "${APPDIR}/usr/share/pixmaps"
+- mkdir -p "${APPDIR}/usr/share/applications"
+- cp atom.desktop "${APPDIR}/usr/share/applications"
+- mkdir -p "${APPDIR}/usr/share/metainfo"
+- cp io.atom.appdata.xml "${APPDIR}/usr/share/metainfo"
+- find "${APPDIR}"
+- |
+  ./linuxdeployqt "${APPDIR}/usr/share/applications/atom.desktop" \
+  -updateinformation="gh-releases-zsync|zilti|Atom.AppImage|continuous|Atom-*.AppImage.zsync" \
+  -appimage
+
+after_success:
+- wget https://github.com/probonopd/uploadtool/raw/master/upload.sh; chmod +x upload.sh
+- bash upload.sh ./*.AppImage*
+
