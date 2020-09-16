@@ -12,10 +12,12 @@ install:
 
 before_script:
 - wget https://github.com/probonopd/linuxdeployqt/releases/download/7/linuxdeployqt-7-x86_64.AppImage; mv linuxdeployqt* linuxdeployqt; chmod +x linuxdeployqt
+- wget https://github.com/iteufel/nwjs-ffmpeg-prebuilt/releases/download/0.45.1/0.45.1-linux-x64.zip
 - wget https://github.com/atom/atom/releases/download/v1.51.0/atom-amd64.tar.gz
 # unpacking
 - tar xzf atom-amd64.tar.gz
 - mv atom-1.51.0-amd64 atom
+- unzip 0.45.1-linux-x64.zip
 
 script:
 - BUILD_SRC=$(pwd)
@@ -28,6 +30,7 @@ script:
 - cp atom.desktop "${APPDIR}/usr/share/applications"
 - mkdir -p "${APPDIR}/usr/share/metainfo"
 - cp io.atom.appdata.xml "${APPDIR}/usr/share/metainfo"
+- cp libffmpeg.so "${APPDIR}/usr/libffmpeg.so"
 - mkdir -p "${APPDIR}/usr/bin"
 - cd "${APPDIR}/usr/bin"
 - ln -s ../local/atom/atom atom
