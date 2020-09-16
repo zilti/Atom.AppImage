@@ -39,8 +39,6 @@ script:
   ./linuxdeployqt "${APPDIR}/usr/share/applications/atom.desktop" \
   -updateinformation="gh-releases-zsync|zilti|Atom.AppImage|continuous|Atom-*.AppImage.zsync" \
   -appimage
-
-after_success:
 - wget https://github.com/probonopd/uploadtool/raw/master/upload.sh; chmod +x upload.sh
 - bash upload.sh ./*.AppImage*
 
